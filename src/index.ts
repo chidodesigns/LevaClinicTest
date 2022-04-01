@@ -1,6 +1,6 @@
 import express from 'express';
 import App from './services/ExpressApp';
-import dbConnection from './services/Database'
+import {dbConnection} from './services/Database'
 import dotenv from 'dotenv';
 dotenv.config();
 
