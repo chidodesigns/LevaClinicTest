@@ -62,7 +62,7 @@ export const CheckUserExist =  (email:string) => {
                     console.log(err)
                     throw err;
                 }
-                resolve(results[0])
+                resolve(results)
             })
             conn.end()
         })
