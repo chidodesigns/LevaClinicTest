@@ -24,20 +24,30 @@ export const AddNewUser = (name: string, email: string, password: string, callba
     }
 }
 
-export const AddUserMedicalInfo = (medicalConditions: [string], mentalHistory: string, medicalHistory:[string], newsUpdate:string, privacyPolicy:string, customerId:number) => {
+export const AddUserMedicalInfo = (medicalConditions: string, mentalHistory: string, medicalHistory:string, newsUpdate:string, privacyPolicy:string, customerId:number) => {
     try {
-        let conn = appDbConn()
         let userMedicalHistory = {
             medical_condtions: medicalConditions,
+            mentalHistory: mentalHistory,
             medical_history: medicalHistory,
             news_updates: newsUpdate,
             privacy_policy: privacyPolicy,
             customerid:customerId
         }
-        //  @Todo Finish This Off
-        const queryResults = conn.query('INSERT INTO customers_medical_info SET')
+        return new Promise((resolve, reject) => {
+            let conn = appDbConn()
+            let queryResults = conn.query('INSERT INTO customers_medical_info SET ?', userMedicalHistory, (err, results) => {
+                if(err){
+                    console.log(err)
+                    throw err;
+                }
+                resolve(results)
+            })
+            conn.end()
+        })
+       
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
@@ -45,14 +55,14 @@ export const AddUserMedicalInfo = (medicalConditions: [string], mentalHistory: s
 export const CheckUserExist =  (email:string) => {
     try {
         return new Promise((resolve, reject) => {
-             let conn = appDbConn()
+        let conn = appDbConn()
         let sql = "SELECT id, name, email FROM customers WHERE email = ?";
             const queryResults = conn.query(sql, email, (err, results) => {
                 if(err) {
                     console.log(err)
                     throw err;
                 }
-                resolve(results)
+                resolve(results[0])
             })
             conn.end()
         })
