@@ -12,3 +12,11 @@ export class CreateCustomerInput {
     password: string
 
 }
+
+export interface CreateCustomerMedicalInformation {
+    medicalConditions: [string];
+    mentalHistory: string;
+    medicalHistory:[string];
+    newsUpdate: string;
+    privacyPolicy:string
+}

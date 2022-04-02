@@ -26,7 +26,7 @@ const createDb = async () => {
     try {
       //  Create Database
       connection.query(
-        "CREATE DATABASE IF NOT EXISTS leviaClinic",
+        "CREATE DATABASE IF NOT EXISTS levaClinic",
         (err, result) => {
           if (err) throw err;
           if (result) {
@@ -55,13 +55,13 @@ export const dbConnection =  async () => {
         user: "root",
         port: 3306,
         password: "",
-        database: "leviaClinic",
+        database: "levaClinic",
       });
 
       if(buildSqlTables){
-        const createCustomersTableSql = "CREATE TABLE IF NOT EXISTS customers ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255) )";
+        const createCustomersTableSql = "CREATE TABLE IF NOT EXISTS customers ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255) ) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB";
 
-        const createCustomersMedInfoTableSql = "CREATE TABLE IF NOT EXISTS customers_medical_info ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, medical_condtions JSON, medical_history JSON, news_updates VARCHAR(3), privacy_policy VARCHAR(3) )";
+        const createCustomersMedInfoTableSql = "CREATE TABLE IF NOT EXISTS customers_medical_info ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, medical_condtions JSON, medical_history JSON, news_updates VARCHAR(3), privacy_policy VARCHAR(3), customerid INT ) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB";
 
         connection.query(
           createCustomersTableSql,
@@ -103,7 +103,7 @@ export const appDbConn = () => {
       user: "root",
       port: 3306,
       password: "",
-      database: "leviaClinic",
+      database: "levaClinic",
     })
 
    

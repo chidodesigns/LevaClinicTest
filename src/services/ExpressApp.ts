@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 
 //  Import Routes
+import { CustomerRoute } from "../routes";
 
 export default async (app: Application) => {
   app.use(express.json());
@@ -11,6 +12,7 @@ export default async (app: Application) => {
   );
 
   //  Add Use Route
+  app.use("/customer", CustomerRoute)
 
   return app;
 };
