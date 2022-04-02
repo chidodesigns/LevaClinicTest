@@ -28,7 +28,7 @@ export const AddUserMedicalInfo = (medicalConditions: string, mentalHistory: str
     try {
         let userMedicalHistory = {
             medical_condtions: medicalConditions,
-            mentalHistory: mentalHistory,
+            mental_history: mentalHistory,
             medical_history: medicalHistory,
             news_updates: newsUpdate,
             privacy_policy: privacyPolicy,

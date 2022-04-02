@@ -61,7 +61,7 @@ export const dbConnection =  async () => {
       if(buildSqlTables){
         const createCustomersTableSql = "CREATE TABLE IF NOT EXISTS customers ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255) ) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB";
 
-        const createCustomersMedInfoTableSql = "CREATE TABLE IF NOT EXISTS customers_medical_info ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, medical_condtions JSON, medical_history JSON, news_updates VARCHAR(10), privacy_policy VARCHAR(10), customerid INT ) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB";
+        const createCustomersMedInfoTableSql = "CREATE TABLE IF NOT EXISTS customers_medical_info ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, medical_condtions JSON, mental_history VARCHAR(10), medical_history JSON, news_updates VARCHAR(10), privacy_policy VARCHAR(10), customerid INT ) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB";
 
         connection.query(
           createCustomersTableSql,
