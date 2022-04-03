@@ -7,6 +7,7 @@ Application built of the Leva Clinic Test
 - `cd client`
 - `npm install` [Get Frontend Node Modeules ]
 - `npm run-script dev` [NPM Pkg Concurrently runs and boots up app (backend server/client dev site) and creates DB and DB tables. Make sure an instance of MYSQL is running on port 3306]
+- Change `env.local` to `.env`
 
 ## Running The Test Suite
 The test suite requires a DB, for this app, 
