@@ -4,8 +4,11 @@ import { validate } from "class-validator";
 import { plainToClass } from "class-transformer";
 import { CreateCustomerInput, CreateCustomerMedicalInformation } from "../dto";
 import { GeneratePassword, GenerateSalt } from "../utility";
-import { AddNewUser, CheckUserExist, AddUserMedicalInfo } from "../models";
+import { AddUserMedicalInfo, AddNewUser, CheckUserExist } from "../models";
 
+/**
+ * NB - A Controller Function to Add Users To The DB, This controller is not wired to a route, created to demonstrate user workflow.
+ */
 export const CustomerSignUp = async (
   req: Request,
   res: Response,

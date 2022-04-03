@@ -106,5 +106,22 @@ export const appDbConn = () => {
       database: "levaClinic",
     })
 
-   
 }
+
+export const destroyDb = () => {
+  try {
+      let conn = appDbConn()
+      //  Create Database
+      conn.query(
+        "DROP DATABASE levaClinic",
+        (err, result) => {
+          if (err) throw err;
+        }
+      );
+      conn.end()
+    }catch(error){
+      console.log(error)
+    }
+}
+
+

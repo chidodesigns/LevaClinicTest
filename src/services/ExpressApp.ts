@@ -12,7 +12,7 @@ export default async (app: Application) => {
   );
 
   //  Add Use Route
-  app.use("/customer", CustomerRoute)
+  app.use("/api/customer", CustomerRoute)
 
   return app;
 };

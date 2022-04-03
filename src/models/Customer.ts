@@ -1,5 +1,8 @@
 import { appDbConn } from "../services/Database";
 
+/**
+ * NB: Added This Model Function To Mimic A User SignUp Can Be Used to Add A User to the DB
+ */
 export const AddNewUser = (name: string, email: string, password: string, callback ) => {
     try {
         let conn =  appDbConn();
@@ -13,6 +16,7 @@ export const AddNewUser = (name: string, email: string, password: string, callba
                 console.log(err);
                 throw err;
             }
+            console.log(results)
             return callback(results)
         })
         conn.end()

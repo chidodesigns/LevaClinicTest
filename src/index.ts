@@ -6,7 +6,7 @@ dotenv.config();
 
 //@TODO Add Port via dotenv config
 
-const StartServer = async () => {
+export const StartServer = async () => {
     const PORT = process.env.PORT || 8000
     const app = express()
     await dbConnection()
