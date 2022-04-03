@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
     "start": "node dist/index.js",
+    "server": "nodemon src/index.ts",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "tsc -p .",
     "postinstall": "npm run build",
     "test": "jest"
@@ -20,6 +22,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "concurrently": "^7.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
